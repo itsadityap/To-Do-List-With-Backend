@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+
+    <body>
+
+        <div class="box" id="heading">
+            <h1><%= kindOfDay %></h1>
+        </div>
+
+        <div class="box">
+            <% newListItems.forEach(function (item){ %>
+            <form method="post" action="/delete">
+                <div class="item">
+                    <input type="checkbox" name="delBox" value="<%=item._id%>" onChange="this.form.submit()">
+                    <p><%=item.name%></p>
+                </div>
+            </form>
+            <% }) %>
+
+            <form class="item" method="post" action="/">
+                <input type="text" name="newItem" placeholder="add items" required autofocus autocomplete="off">
+                <button type="submit">+</button>
+            </form>
+        </div>
+
+    </body>
+</html>
